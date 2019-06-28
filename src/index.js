@@ -1,12 +1,13 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
+import Toggle from './components/RouteComponent/main';
+// import { BrowserRouter } from 'react-router-dom';
 import './index.css';
 // import App from './App';
 import * as serviceWorker from './serviceWorker';
 
 // Part 0
 // ReactDOM.render(<App />, document.getElementById('root'));
-
 
 // Part 1
 // 计时器
@@ -760,63 +761,92 @@ import * as serviceWorker from './serviceWorker';
 
 // Part 19 以class方式定义的组件
 
-function FuncyBorder(props){
-    return (
-        <div className={'FancyBorder FancyBorder-'+props.color}>
-            {props.children}
-        </div>
-    )
-}
-function Dialog(props){
-    return(
-        <FuncyBorder color="blue">
-            <h1 className="Dialog-title">
-                {props.title}
-            </h1>
-            <p className="Dialog-message">
-                {props.message}
-            </p>
-            {props.children}
-        </FuncyBorder>
-    )
-}
+// function FuncyBorder(props){
+//     return (
+//         <div className={'FancyBorder FancyBorder-'+props.color}>
+//             {props.children}
+//         </div>
+//     )
+// }
+// function Dialog(props){
+//     return(
+//         <FuncyBorder color="blue">
+//             <h1 className="Dialog-title">
+//                 {props.title}
+//             </h1>
+//             <p className="Dialog-message">
+//                 {props.message}
+//             </p>
+//             {props.children}
+//         </FuncyBorder>
+//     )
+// }
 
-class SignUpDialog extends React.Component{
-    constructor(props){
-        super(props)
-        this.handleChange=this.handleChange.bind(this)
-        this.handleSignUp=this.handleSignUp.bind(this)
-        this.state={login:''}
-    }
-    render(){
-        return(
-            <Dialog 
-                title="Mars Exploration Program"
-                message="How should we refer to you?">
-                    <input 
-                        value={this.state.login}
-                        onChange={this.handleChange}/>
-                    <button onClick={this.handleSignUp}>
-                        Sign Me Up
-                    </button>
-            </Dialog>
-        )
-    }
+// class SignUpDialog extends React.Component{
+//     constructor(props){
+//         super(props)
+//         this.handleChange=this.handleChange.bind(this)
+//         this.handleSignUp=this.handleSignUp.bind(this)
+//         this.state={login:''}
+//     }
+//     render(){
+//         return(
+//             <Dialog 
+//                 title="Mars Exploration Program"
+//                 message="How should we refer to you?">
+//                     <input 
+//                         value={this.state.login}
+//                         onChange={this.handleChange}/>
+//                     <button onClick={this.handleSignUp}>
+//                         Sign Me Up
+//                     </button>
+//             </Dialog>
+//         )
+//     }
 
-    handleChange(e){
-        this.setState({
-            login: e.target.value
-        })
-    }
+//     handleChange(e){
+//         this.setState({
+//             login: e.target.value
+//         })
+//     }
 
-    handleSignUp(){
-        console.log(`hello,${this.state.login}`)
-    }
-}
+//     handleSignUp(){
+//         console.log(`hello,${this.state.login}`)
+//     }
+// }
 
+
+// ReactDOM.render(
+//     <SignUpDialog/>,
+//     document.getElementById('root')
+// )
+
+// const App = React.createClass({
+//     render(){
+//         return(
+//             <div>
+//                 <h1>App</h1>
+//                 <ul>
+//                     <li><Link to='/about'>About</Link></li>
+//                     <li><Link to='/index'>Index</Link></li>
+//                 </ul>
+//                 {this.props.children}
+//             </div>
+//         )
+//     }
+// })
+
+// React.render((
+//     <Router>
+//         <Route path='/' component={App}>
+//             <Route path='about' component={About}/>
+//             <Route path='index' component={Index}/>
+//         </Route>
+//     </Router>
+// ))
 
 ReactDOM.render(
-    <SignUpDialog/>,
+    <Toggle/>,
     document.getElementById('root')
 )
 
