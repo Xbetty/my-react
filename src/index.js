@@ -454,58 +454,371 @@ import * as serviceWorker from './serviceWorker';
 
 
 // Part 13 处理多个输入
-class Reservation extends React.Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      isGoing: true,
-      numberOfGuests: 2
-    };
+// class Reservation extends React.Component {
+//   constructor(props) {
+//     super(props);
+//     this.state = {
+//       isGoing: true,
+//       numberOfGuests: 2
+//     };
 
-    this.handleInputChange = this.handleInputChange.bind(this);
-  }
+//     this.handleInputChange = this.handleInputChange.bind(this);
+//   }
 
-  handleInputChange(event) {
-    const target = event.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-    const name = target.name;
-    console.log('name', [name])
-    this.setState({
-      [name]: value
-    });
-  }
+//   handleInputChange(event) {
+//     const target = event.target;
+//     const value = target.type === 'checkbox' ? target.checked : target.value;
+//     const name = target.name;
+//     console.log('name', [name])
+//     this.setState({
+//       [name]: value
+//     });
+//   }
 
-  render() {
+//   render() {
+//     return (
+//       <form>
+//         <label>
+//           Is going:
+//           <input
+//             name="isGoing"
+//             type="checkbox"
+//             checked={this.state.isGoing}
+//             onChange={this.handleInputChange} />
+//         </label>
+//         <br />
+//         <label>
+//           Number of guests:
+//           <input
+//             name="numberOfGuests"
+//             type="number"
+//             value={this.state.numberOfGuests}
+//             onChange={this.handleInputChange} />
+//         </label>
+//       </form>
+//     );
+//   }
+// }
+
+// ReactDOM.render(
+//   <Reservation />,
+//   document.getElementById('root')
+// );
+
+// Part 14 状态提升之计算水在给定温度下是否会沸腾的温度计算器
+// function BoilingVerdict(props){
+//     if(props.celsius >= 100) {
+//         return <p>The water would boil.</p>
+//     } 
+//     return <p>The water would not boil </p>
+// }
+
+// class Calculator extends React.Component{
+//     constructor(props){
+//         super(props)
+//         this.handleChange=this.handleChange.bind(this)
+//         this.state={temperature: ''}
+//     }
+
+//     handleChange(e){
+//         this.setState({temperature: e.target.value})
+//     }
+
+//     render(){
+//         const temperature = this.state.temperature
+//         return(
+//             <fieldset>
+//                 <legend>
+//                     Enter temperature in celsius:
+//                 </legend>
+//                 <input 
+//                     value={temperature}
+//                     onChange={this.handleChange}/>
+//                 <BoilingVerdict celsius={parseFloat(temperature)}/>
+//             </fieldset>
+//         )
+//     }
+// }
+
+// ReactDOM.render(
+//     <Calculator/>,
+//     document.getElementById('root')
+// )
+
+// Part 15  摄氏度与华氏温度
+// 温度类型
+// const scaleName = {
+//     c: 'Celsius',
+//     f: 'Fahrenheit'
+// }
+
+// // 华氏度转摄氏度
+// function toCelsius(fahrenheit){
+//     return (fahrenheit - 32) * 5 / 9
+// }
+// // 摄氏度转华氏度
+// function toFahrenheit(celsius){
+//     return (celsius * 9 / 5) + 32
+// }
+// // 依据一个输入框的值计算出另一个输入框的值
+// // 接受字符串类型的temperature和转换函数作为参数并返回一个字符串
+// function tryConvert(temperature, convert){
+//     const input = parseFloat(temperature)
+//     if(Number.isNaN(input)){
+//         return ''
+//     }
+//     const output = convert(input)
+//     const rounded = Math.round(output * 1000) / 1000
+//     return rounded.toString()
+// }
+
+// function BoilingVerdict(props){
+//     if(props.celsius >= 100) {
+//         return <p>The water would boil.</p>
+//     } 
+//     return <p>The water would not boil </p>
+// }
+// class TemperatureInput extends React.Component {
+//     constructor(props){
+//         super(props)
+//         this.handleChange = this.handleChange.bind(this)
+//         this.state = {temperature: ''}
+//     }
+
+//     handleChange(e){
+//         this.props.onTemperatureChange(e.target.value)
+//     }
+
+//     render(){
+//         const temperature = this.props.temperature
+//         const scale = this.props.scale
+//         return(
+//             <fieldset>
+//                 <legend>
+//                     Enter temperature in {scaleName[scale]}:
+//                 </legend>
+//                 <input 
+//                     value={temperature}
+//                     onChange={this.handleChange}/>
+//             </fieldset>
+//         )
+//     }
+// }
+
+// // 共同父组件
+// class Calculator extends React.Component{
+//     constructor(props){
+//         super(props)
+//         this.handleCelsiusChange = this.handleCelsiusChange.bind(this)
+//         this.handleFahrenheitChange = this.handleFahrenheitChange.bind(this)
+
+//         // 在React中，将多个组件中需要共享的state向上移动到它们最近共同父组件中，便可实现共享state。这就是所谓的“状态提升”。
+//         // 于是将TemperatureInput组件中的state移动到Calculator组件中去。
+
+//         // 如果Calculator组件拥有了共享的state，它将称为两个温度输入框中当前温度的“数据源”。它能够使得两个温度输入框的数值彼此保持一致。
+//         // 由于两个TemperatureInput组件的props均来自共同的父组件Calculator，因此两个输入框中的内容将始终保持一致。
+//         this.state={
+//             temperature: '',
+//             scale: 'c'
+//         }
+//     }
+
+//     handleCelsiusChange (temperature) {
+//         this.setState({
+//             scale:'c',
+//             temperature
+//         });
+//     }
+
+//     handleFahrenheitChange (temperature) {
+//         this.setState({
+//             scale: 'f',
+//             temperature
+//         });
+//     }
+
+//     render(){
+//         const scale = this.state.scale
+//         const temperature = this.state.temperature
+//         const celsius = scale === 'f' ? tryConvert(temperature, toCelsius) : temperature
+//         const fahrenheit = scale === 'c' ? tryConvert(temperature, toFahrenheit) : temperature
+//         return(
+//             <div>
+//                 <TemperatureInput 
+//                     scale="c"
+//                     temperature={celsius}
+//                     onTemperatureChange = {this.handleCelsiusChange}/>
+//                 <TemperatureInput 
+//                     scale="f"
+//                     temperature={fahrenheit}
+//                     onTemperatureChange = {this.handleFahrenheitChange}/>
+//                 <BoilingVerdict
+//                     celsius={parseFloat(celsius)}
+//                 />
+//             </div>
+//         )
+//     }
+// }
+
+// ReactDOM.render(
+//     <Calculator/>,
+//     document.getElementById('root')
+// )
+
+
+// Part 16 包含关系之通过JSX嵌套，将任意组件作为子组件传递给它们
+// function FuncyBorder(props){
+//     return (
+//         <div className={'FancyBorder FancyBorder-'+props.color}>
+//             {props.children}
+//         </div>
+//     )
+// }
+// function WelcomeDialog(){
+//     return(
+//         <FuncyBorder color="blue">
+//             <h1 className="Dialog-title">
+//                 Welcome
+//             </h1>
+//             <p className="Dialog-message">
+//                 Thank you for visiting xzt's Part 16!
+//             </p>
+//         </FuncyBorder>
+//     )
+// }
+// ReactDOM.render(
+//     <WelcomeDialog/>,
+//     document.getElementById('root')
+// )
+
+// Part 17 使用相应的prop传递组件而不使用children
+// function Contacts(){
+//     return <div className="Contacts"></div>
+// }
+
+// function Chat(){
+//     return <div className="Chat"></div>
+// }
+
+// function SplitPane(props){
+//     return(
+//         <div className="SplitPane">
+//             <div className="SplitPane-left">
+//                 {props.left}
+//             </div>
+//             <div className="SplitPane-right">
+//                 {props.right}
+//             </div>
+//         </div>
+//     )
+// }
+// function App(){
+//     return(
+//         <SplitPane
+//             left={<Contacts/>}
+//             right={<Chat/>}
+//         />
+//     )
+// }
+// ReactDOM.render(
+//     <App/>,
+//     document.getElementById('root')
+// )
+
+// Part 18 特例关系
+// function FuncyBorder(props){
+//     return (
+//         <div className={'FancyBorder FancyBorder-'+props.color}>
+//             {props.children}
+//         </div>
+//     )
+// }
+// function Dialog(props){
+//     return(
+//         <FuncyBorder color="blue">
+//             <h1 className="Dialog-title">
+//                 {props.title}
+//             </h1>
+//             <p className="Dialog-message">
+//                 {props.message}
+//             </p>
+//         </FuncyBorder>
+//     )
+// }
+// function WelcomeDialog(){
+//     return(
+//         <Dialog 
+//             title="Welcome"
+//             message="Thank you for visiting XZT Part18"
+//         />
+//     )
+// }
+// ReactDOM.render(
+//     <WelcomeDialog/>,
+//     document.getElementById('root')
+// )
+
+// Part 19 以class方式定义的组件
+
+function FuncyBorder(props){
     return (
-      <form>
-        <label>
-          Is going:
-          <input
-            name="isGoing"
-            type="checkbox"
-            checked={this.state.isGoing}
-            onChange={this.handleInputChange} />
-        </label>
-        <br />
-        <label>
-          Number of guests:
-          <input
-            name="numberOfGuests"
-            type="number"
-            value={this.state.numberOfGuests}
-            onChange={this.handleInputChange} />
-        </label>
-      </form>
-    );
-  }
+        <div className={'FancyBorder FancyBorder-'+props.color}>
+            {props.children}
+        </div>
+    )
+}
+function Dialog(props){
+    return(
+        <FuncyBorder color="blue">
+            <h1 className="Dialog-title">
+                {props.title}
+            </h1>
+            <p className="Dialog-message">
+                {props.message}
+            </p>
+            {props.children}
+        </FuncyBorder>
+    )
 }
 
+class SignUpDialog extends React.Component{
+    constructor(props){
+        super(props)
+        this.handleChange=this.handleChange.bind(this)
+        this.handleSignUp=this.handleSignUp.bind(this)
+        this.state={login:''}
+    }
+    render(){
+        return(
+            <Dialog 
+                title="Mars Exploration Program"
+                message="How should we refer to you?">
+                    <input 
+                        value={this.state.login}
+                        onChange={this.handleChange}/>
+                    <button onClick={this.handleSignUp}>
+                        Sign Me Up
+                    </button>
+            </Dialog>
+        )
+    }
+
+    handleChange(e){
+        this.setState({
+            login: e.target.value
+        })
+    }
+
+    handleSignUp(){
+        console.log(`hello,${this.state.login}`)
+    }
+}
+
+
 ReactDOM.render(
-  <Reservation />,
-  document.getElementById('root')
-);
-
-
+    <SignUpDialog/>,
+    document.getElementById('root')
+)
 
 
 // If you want your app to work offline and load faster, you can change
