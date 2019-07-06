@@ -4,9 +4,12 @@ import React from 'react';
 import './App.css';
 // import Main from './components/RouteComponent/main'
 // 高阶组件
-import A from './components/HighOrderComponents/A'
+// import A from './components/HighOrderComponents/A'
 import B from './components/HighOrderComponents/B'
 import C from './components/HighOrderComponents/C'
+import E from './components/HighOrderComponents/E'
+import F from './components/HighOrderComponents/F'
+
 
 // 基本路由
 // import BasicRouter from './components/ReactRouter/BasicRouter'
@@ -44,9 +47,11 @@ function App() {
         {/* <First times="first"/> */}
 
         {/* 高阶组件 */}
-        <A/>
-        <B/>
-        <C/>
+        {/* <A /> */}
+        <B name={'xzt'} age={20}/>
+        <C />
+        <E />
+        <F />
       </header>
     </div>
   );
