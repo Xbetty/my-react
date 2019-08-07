@@ -7,13 +7,13 @@ function Header(){
       <div>
         <ul>
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/">Embeded-Home</Link>
           </li>
           <li>
-            <Link to="/about">About</Link>
+            <Link to="/about">Embeded-About</Link>
           </li>
           <li>
-            <Link to="/topics">Topics</Link>
+            <Link to="/topics">Embeded-Topics</Link>
           </li>
         </ul>
       </div>

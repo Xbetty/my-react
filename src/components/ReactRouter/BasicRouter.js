@@ -1,5 +1,5 @@
 // 基本路由
-import React from 'react'
+import React, {Fragment} from 'react'
 import { BrowserRouter as Router, Route, Link} from 'react-router-dom'
 // 组件
 function Index() {
@@ -14,17 +14,17 @@ function Users() {
 function AppRouter() {
   return(
     <Router>
-      <div>
+      <Fragment>
         <nav>
           <ul>
             <li>
-              <Link to="/">Home</Link>
+              <Link to="/">Basic-Home</Link>
             </li>
             <li>
-              <Link to="/about/">About</Link>
+              <Link to="/about/">Basic-About</Link>
             </li>
             <li>
-              <Link to="/users/">Users</Link>
+              <Link to="/users/">Basic-Users</Link>
             </li>
           </ul>
         </nav>
@@ -32,7 +32,7 @@ function AppRouter() {
         <Route path="/" exact component={Index}/>
         <Route path="/about/" exact component={About}/>
         <Route path="/users/" component={Users}/>
-      </div>
+      </Fragment>
     </Router>
   )
 }

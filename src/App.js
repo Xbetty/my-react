@@ -2,7 +2,7 @@ import React from 'react';
 // import ReactDOM from 'react-dom';
 import logo from './logo.svg';
 import './App.css';
-import Main from './components/RouteComponent/Main'
+import Main from './components/RouteComponent/main'
 // 基本路由
 // import BasicRouter from './components/ReactRouter/BasicRouter'
 // 嵌套路由

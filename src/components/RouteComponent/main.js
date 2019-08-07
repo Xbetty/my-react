@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Fragment } from 'react'
 import {BrowserRouter as Router, Route, Link} from 'react-router-dom'
 import Clock from './Clock'
 import Toggle from './Toggle'
@@ -8,6 +8,7 @@ import MailBox from './MailBox'
 import Page from './Page'
 import BasicRouter from './../ReactRouter/BasicRouter'
 import EmbededRouter from './../ReactRouter/EmbededRouter'
+import ReduxFrom from '../ReduxPrac/ReduxForm'
 // React Demos
 function Demo(){
     const message = ['react', 'Re:react', 'Re:Re:react']
@@ -89,7 +90,7 @@ function Demo(){
 // React Router
 function ReactRouter(){
     return(
-        <div>
+        <Fragment>
             <h2>二. React Router</h2>
             
             <ul>
@@ -103,20 +104,15 @@ function ReactRouter(){
 
             <Route path="/basic" component={BasicRouter}/>
             <Route path="/embeded" component={EmbededRouter}/>
-        </div>
+        </Fragment>
     )
 }
 function Main(){
     return(
         <Router>
-            <div>
-                <div>
-                    <Demo/>
-                </div>
-                <div>
-                    <ReactRouter/>
-                </div>
-            </div>
+            <Demo/>
+            <ReactRouter/>
+            <ReduxFrom/>
         </Router>
     )
 }
