@@ -22,6 +22,8 @@ import ReactReduxDemo from '../ReactReduxDemo'
 import {Provider} from 'react-redux'
 import ReactReduxStore from '../ReactReduxDemo/store'
 
+import ReduxThunkDemo from '../ReduxThunkDemo'
+
 // React Demos
 function Demo(){
     const message = ['react', 'Re:react', 'Re:Re:react']
@@ -131,6 +133,8 @@ function Main(){
             <Provider store={ReactReduxStore}>
                 <ReactReduxDemo/>
             </Provider>
+            {/* redux-thunk */}
+            <ReduxThunkDemo/>
         </Router>
     )
 }
