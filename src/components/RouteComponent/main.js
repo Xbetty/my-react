@@ -22,7 +22,12 @@ import ReactReduxDemo from '../ReactReduxDemo'
 import {Provider} from 'react-redux'
 import ReactReduxStore from '../ReactReduxDemo/store'
 
+// Redux-Thunk测试组件
 import ReduxThunkDemo from '../ReduxThunkDemo'
+
+// Redux-Saga测试组件
+import ReduxSagaDemo from '../ReduxSagaDemo'
+import ReduxSagaStore from '../ReduxSagaDemo/store'
 
 // React Demos
 function Demo(){
@@ -135,6 +140,10 @@ function Main(){
             </Provider>
             {/* redux-thunk */}
             <ReduxThunkDemo/>
+            {/* redux-saga */}
+            <Provider store={ReduxSagaStore}>
+                <ReduxSagaDemo/>
+            </Provider>
         </Router>
     )
 }
