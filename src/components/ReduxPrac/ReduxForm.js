@@ -61,7 +61,8 @@ class ReduxFrom extends Component{
                         height: '40px',
                         borderRadius: '10px',
                         backgroundColor: 'green',
-                        color: '#fff'
+                        color: '#fff',
+                        fontSize: "14px"
                     }}
                     onClick = {this.handleBtnClick}
                 >

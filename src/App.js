@@ -1,7 +1,8 @@
 import React from 'react';
 // import ReactDOM from 'react-dom';
-import logo from './logo.svg';
 import './App.css';
+// 引入ant design
+import 'antd/dist/antd.css';
 import Main from './components/RouteComponent/main'
 // 高阶组件
 // import A from './components/HighOrderComponents/A'
@@ -31,7 +32,6 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
         <Main/>
         {/* 引入基本路由组件 */}
         {/* <BasicRouter/> */}

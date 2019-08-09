@@ -6,9 +6,22 @@ import Greeting from './Greeting'
 import LoginControl from './LoginControl'
 import MailBox from './MailBox'
 import Page from './Page'
+
+// 路由测试组件
+// 基本路由
 import BasicRouter from './../ReactRouter/BasicRouter'
+// 嵌套路由
 import EmbededRouter from './../ReactRouter/EmbededRouter'
+
+// Redux测试组件
 import ReduxFrom from '../ReduxPrac/ReduxForm'
+
+// React Redux测试组件
+import ReactReduxDemo from '../ReactReduxDemo'
+// 引入Provider
+import {Provider} from 'react-redux'
+import ReactReduxStore from '../ReactReduxDemo/store'
+
 // React Demos
 function Demo(){
     const message = ['react', 'Re:react', 'Re:Re:react']
@@ -112,7 +125,12 @@ function Main(){
         <Router>
             <Demo/>
             <ReactRouter/>
+            {/* redux */}
             <ReduxFrom/>
+            {/* react-redux */}
+            <Provider store={ReactReduxStore}>
+                <ReactReduxDemo/>
+            </Provider>
         </Router>
     )
 }

@@ -7,11 +7,13 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
+
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
 /* * */
+
 ul{
   list-style: none;
   font-size: 16px;
@@ -21,7 +23,7 @@ ul{
   zoom: 1;
 }
 li{
-  float: left;
+  /* float: left; */
   padding: 20px;
 }
 li:hover{
