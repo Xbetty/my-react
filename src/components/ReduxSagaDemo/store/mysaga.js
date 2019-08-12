@@ -4,7 +4,7 @@ import axios from 'axios'
 import {GET_TODO_LIST} from './actionType'
 
 function* mySaga() {
-    yield takeEvery(GET_TODO_LIST, getTodoList())
+    yield takeEvery(GET_TODO_LIST, getTodoList)
 }
 
 function* getTodoList() {

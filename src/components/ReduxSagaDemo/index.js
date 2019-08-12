@@ -7,7 +7,9 @@ import store from './store'
 class ReduxSagaDemo extends Component {
     componentDidMount() {
         const action = getTodoListAction()
+        console.log('action', action)
         store.dispatch(action)
+        console.log(2)
     }
     render() {
         return (
