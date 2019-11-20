@@ -1,7 +1,16 @@
+/*
+ * @Author: xzt
+ * @Date: 2019-11-20 11:46:01
+ * @LastEditors: xzt
+ * @LastEditTime: 2019-11-20 15:11:47
+ * @Description: 
+ * @FilePath: \react-my-prac\src\components\RouteComponent\MailBox.js
+ */
 import React from 'react'
 // Part 5 与运算符&&
 function Mailbox(props){
-    const unreadMessages = props.unreadMessages;
+    console.log(111, props)
+    const unreadMessages = props.location.query || '';
     console.log(1)
     return (
         <div>

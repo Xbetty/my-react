@@ -1,9 +1,17 @@
+/*
+ * @Author: xzt
+ * @Date: 2019-11-20 11:46:01
+ * @LastEditors: xzt
+ * @LastEditTime: 2019-11-20 15:15:09
+ * @Description: 
+ * @FilePath: \react-my-prac\src\App.js
+ */
 import React from 'react';
 // import ReactDOM from 'react-dom';
 import './App.css';
 // 引入ant design
 import 'antd/dist/antd.css';
-import Main from './components/RouteComponent/main'
+import Main from './components/main'
 // 高阶组件
 // import A from './components/HighOrderComponents/A'
 // import B from './components/HighOrderComponents/B'
