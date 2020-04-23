@@ -90,7 +90,7 @@ export default (title) => WrappedComponent => class A extends Component {
             <div className="a-container">
                 <div className="header">
                     <div>{title}</div>
-                    <div>x</div>
+                    <div>这是高阶组件A组件</div>
                 </div>
                 <div>
                     <WrappedComponent sex={'女'} {...otherProps} {...newProps}></WrappedComponent>
