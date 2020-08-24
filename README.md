@@ -11,7 +11,7 @@
 - State执行机制
 
 #### 二. 项目目录
-
+```
 .
 ├── README.md
 └── src
@@ -29,3 +29,5 @@
     │   └── main.js
     ├── index.css 
     ├── index.js // 入口文件
+
+```
