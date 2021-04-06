@@ -1,10 +1,10 @@
 /*
  * @Author: xzt
  * @Date: 2019-11-20 11:46:01
- * @LastEditors: xiongziting
- * @LastEditTime: 2020-08-10 17:31:03
+ * LastEditors: xiongziting
+ * LastEditTime: 2021-04-06 21:46:09
  * @Description:
- * @FilePath: \react-my-prac\src\components\main.js
+ * FilePath: /react-my-prac/src/components/main.js
  */
 import React from 'react';
 import { BrowserRouter as Router } from 'react-router-dom';
@@ -34,17 +34,21 @@ import ReduxSagaDemo from './ReduxSagaDemo';
 import ReduxSagaStore from './ReduxSagaDemo/store';
 
 // state的执行过程
-import ClassComponent from './StateExcuteProcess/ClassComponent';
-import FuncComponents from './StateExcuteProcess/FuncComponents';
-import AsyncAndSync from './StateExcuteProcess/AsyncAndSync';
+// import ClassComponent from './StateExcuteProcess/ClassComponent';
+// import FuncComponents from './StateExcuteProcess/FuncComponents';
+// import AsyncAndSync from './StateExcuteProcess/AsyncAndSync';
+
+// hook
+import HookDemo from './Hook/index'
 
 function Main() {
   return (
+    <>
     <Router>
       {/* state执行过程 */}
-      <ClassComponent />
+      {/* <ClassComponent /> */}
       {/* <FuncComponents /> */}
-      <AsyncAndSync />
+      {/* <AsyncAndSync /> */}
 
       {/* HOC */}
       <HocComponentIndex />
@@ -65,6 +69,10 @@ function Main() {
         <ReduxSagaDemo />
       </Provider>
     </Router>
+
+    {/* Hook */}
+    <HookDemo/>
+    </>
   );
 }
 export default Main;
